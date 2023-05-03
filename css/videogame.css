@@ -1,0 +1,158 @@
+#screen {
+	margin-top: 10%;
+	padding: 20px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+#board {
+	width: 400px;
+	height: 300px;
+	background-color: transparent;
+	float:left;
+
+}
+
+#form {
+	float: left;
+	width: 100%;
+	margin-left: 1%;
+	margin-top:  1%;
+
+}
+
+#form > form {
+	border-style: solid;
+	border-color: lightblue;
+	border-width: 5px;
+	background-color: rgba(135,135,135,0.19);
+	width: auto;
+}
+
+#form>form > label {
+	color: floralwhite;
+	font-family: "Agency FB";
+	font-size: large;
+	text-shadow:
+			-1px -1px 0 #000,
+			1px -1px 0 #000,
+			-1px 1px 0 #000,
+			1px 1px 0 #000;
+
+}
+
+#form >form >input{
+	background-color: transparent;
+	border-style: solid;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-color: lightblue;
+	color: yellow;
+	font-family: "Agency FB";
+	font-size: large;
+	text-shadow:
+			-1px -1px 0 #000,
+			1px -1px 0 #000,
+			-1px 1px 0 #000,
+			1px 1px 0 #000;
+
+
+}
+
+#form > form > button {
+	background-color: lightgreen;
+	border-color: lightgreen;
+	border-style: groove;
+	color: #29005d;
+	font-family: "Agency FB";
+
+}
+
+#menu {
+	margin-left: 20px;
+	padding: 5px;
+	width: 180px;
+	height: 360px;
+	float: right;
+	border-style: solid;
+	border-color: lightblue;
+	border-width: 5px;
+	background-color: rgba(135,135,135,0.19);
+
+}
+
+#controlPanel {
+	float: left;
+	width: 580px;
+	margin: 5px;
+	padding: 5px;
+}
+
+.cell {
+	margin: 2px;
+	float: left;
+	width: 40px;
+	height: 40px;
+	background-color: violet;
+	border-style: solid;
+}
+
+.target {
+	background-color: #29005d;
+	border-style: solid;
+	border-color: lightgreen;
+
+}
+
+.miss {
+	background-color: red;
+}
+
+.hit {
+	background-color: green;
+}
+
+body {
+	background-image: url("../img/856733.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+
+#menu>h3 {
+	color: floralwhite;
+	font-family: "Agency FB";
+	margin-bottom: 1px;
+	text-shadow:
+			-1px -1px 0 #000,
+			1px -1px 0 #000,
+			-1px 1px 0 #000,
+			1px 1px 0 #000;
+
+}
+
+#menu>p {
+	margin-top: 1px;
+	color: yellow;
+	text-shadow:
+			-1px -1px 0 #000,
+			1px -1px 0 #000,
+			-1px 1px 0 #000,
+			1px 1px 0 #000;
+
+}
+
+#startButton {
+	display: flex;
+	justify-content: center;
+}
+
+#startButton>button {
+	background-color: lightgreen;
+	border-color: lightgreen;
+	border-style: groove;
+	color: #29005d;
+
+}

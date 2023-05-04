@@ -67,8 +67,8 @@
 	border-style: groove;
 	color: #29005d;
 	font-family: "Agency FB";
-
 }
+
 
 #menu {
 	margin-left: 20px;
@@ -144,12 +144,12 @@ body {
 
 }
 
-#startButton {
+#Buttons {
 	display: flex;
 	justify-content: center;
 }
 
-#startButton>button {
+#Buttons>button {
 	background-color: lightgreen;
 	border-color: lightgreen;
 	border-style: groove;

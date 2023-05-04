@@ -38,7 +38,7 @@ function validar() {
 	if (!pointsPerMissRegEx.test(pointsPerMissInput.value)) {
 		pointsPerMissError.textContent = "Los puntos por fallar deben ser un número entero positivo";
 		return false;
-	} else if (juego.puntosAcierto < pointsPerMissInput.value || juego.puntosAcierto < juego.puntosFallo) {
+	} else if (juego.puntosAcierto < pointsPerMissInput.value) {
 		pointsPerMissError.textContent = "Los puntos por fallos no pueden superar a los puntos por acierto";
 		return false;
 	} else {

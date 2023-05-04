@@ -1,5 +1,5 @@
 // Número total de objetivos en el juego
-const NUMOBJETIVOS = 48;
+const NUMOBJETIVOS = 56;
 
 // Clases e IDs de los diferentes elementos HTML
 const CLASEACIERTO = 'hit';
@@ -88,8 +88,13 @@ function prepararTablero(numObjetivoAnterior, numObjetivoNuevo) {
 
 	//Si los objetivos por minuto entre asignacion de objetivos se mantiene igual, es porque el jugador no ha clicado correcta o incorrectamente y se le restara un punto
 	if ((juego.objetivosPorMinuto === juego.objetivosPorMinutoPrevio) && juego.puntos > 0) {
-		juego.puntos -= 1;
+		juego.puntos -= 1; //Disminuye puntos
+		juego.fallosJugador +=1; //Aumenta fallos
+		juego.bonusJugador = 5; //Reinicia aciertos para bonus
+
 		document.getElementById(IDPUNTUACION).textContent = juego.puntos;
+		document.getElementById("fallos").textContent = juego.fallosJugador;
+		document.getElementById("bonus").textContent = juego.bonusJugador;
 	}
 }
 
@@ -119,6 +124,10 @@ function construirIdObjetivo(idNum) {
  */
 function objetivoAcertado(numId) {
 	let id = construirIdObjetivo(numId);
+
+	//Reproduce sonido cada vez que se acierta
+	const audioAcierto = document.getElementById("audioAcierto");
+	audioAcierto.play();
 
 	// Marcamos el objetivo como puntuado, y sumamos puntos
 	juego.objetivoPuntuado = true;
@@ -162,6 +171,11 @@ function objetivoAcertado(numId) {
 function objetivoFallido(numId) {
 	let id = construirIdObjetivo(numId);
 
+	//Reproduce audio cada vez que se falla
+	const audioFallo = document.getElementById("audioFallo");
+	audioFallo.play();
+
+
 	// Con Math.abs() nos aseguramos que restamos puntos, evitando posibles problemas con dobles negativos
 	// Con Math.max() nos aseguramos que el total de puntos nunca es inferior a cero
 	juego.puntos = Math.max(juego.puntos - Math.abs(juego.puntosFallo), 0);
@@ -184,7 +198,9 @@ function objetivoFallido(numId) {
 	juego.bonusJugador = 5;
 	document.getElementById("bonus").textContent = juego.bonusJugador;
 
-
+	//Aumenta contador de fallos si jugador clica en casilla incorrecta
+	juego.fallosJugador +=1;
+	document.getElementById("fallos").textContent = juego.fallosJugador;
 
 
 }
@@ -238,6 +254,7 @@ function nuevoObjetivo() {
 	console.log(juego.objetivosPorMinutoPrevio + " previo")
 	setTimeout(function(){nuevoObjetivo()}, tiempoEspera);
 
+	//Guardamos los objetivos por minutos actuales antes de que se puedan actualizar para usarlos en la penalización por no hacer clic
 	juego.objetivosPorMinutoPrevio = juego.objetivosPorMinuto;
 
 
@@ -253,6 +270,7 @@ function inicializar() {
 	prepararJuego(); // Inicializamos el estado del juego a la posición de inicio
 	console.log('Juego inicializado');
 	nuevoObjetivo(); // Comenzamos a jugar
+	document.getElementById("startButton").disabled = true; //Deshabilita el boton iniciar una vez se hace clic para que no se cree más de un objetivo
 }
 
 /**
@@ -284,3 +302,4 @@ function pulsado(numObjetivoPulsado) {
 
 	return acierto;
 }
+

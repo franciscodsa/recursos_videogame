@@ -1,0 +1,15 @@
+Mejoras y cambios realizados
+
+1- Se creó la función "validar" (en el archivo validation.js) para controlar el formulario. Se utilizó JSDOM y expresiones regulares junto al método "test()" para validar que los datos ingresados sean correctos.
+
+2- Se modificó la función "objetivoAcertado" en videogame.js para aumentar la frecuencia de aparición de los objetivos cuando el jugador acierta. Por otro lado, también se realizaron ajustes a la función "objetivoFallido" para reducir ligeramente la velocidad cuando se hace clic en una casilla incorrecta.
+
+3- Se agregaron las etiquetas "Aciertos", "Fallos" y "Aciertos para Bonus" en el HTML, así como las variables necesarias en videogame.js para mostrar esta información al jugador. "Aciertos para Bonus" muestra cuántos aciertos exitosos seguidos se necesitan para obtener una bonificación de puntos, y se reinicia al fallar.
+
+4- Se agregó un botón "Iniciar" para comenzar el juego al hacer clic en él. Anteriormente, era posible crear múltiples objetivos si se hacía clic varias veces en el botón "Iniciar", pero se solucionó este problema modificando la función "inicializar()" para que el atributo "disabled" del botón "Iniciar" se cambie a "true" después de ser llamado una vez. También se creó un botón "Reiniciar" para que el jugador pueda reiniciar el juego.
+
+5- Se creó una nueva variable para almacenar la frecuencia de objetivos previa a la modificación en las funciones "nuevoObjetivo", "objetivoFallido" y "objetivoAcertado", con el fin de verificar si el jugador realizó algún clic y penalizarlo en caso de que dejara pasar un objetivo sin intentar acertar. En caso de que la frecuencia previa sea igual a la actual cuando se crean nuevos objetivos, se restará un punto.
+
+6- Se reorganizó el HTML utilizando CSS, se estableció una imagen de fondo y se mejoró la visibilidad de los objetivos y campos de texto para mejorar la experiencia del jugador.
+
+7- Se agregó audio que se reproduce cuando el jugador falla o acierta.
